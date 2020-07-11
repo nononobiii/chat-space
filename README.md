@@ -55,6 +55,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|autofocus: true,null: false,uniqueness: true|
 |user_id|integer|null: false,foreign_key: true|
+|message_id|integer|null: false,foreign_key: true|
 
 ### Association
 - has_many :users, through :groups_users
