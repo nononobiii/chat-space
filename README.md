@@ -41,8 +41,8 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-|text|text|null: false|
-|image|text|  ｜
+|text|text||
+|image|text||
 
 ### Association
 - belongs_to :user
@@ -54,13 +54,11 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|autofocus: true,null: false,uniqueness: true|
-|user_id|integer|null: false,foreign_key: true|
-|message_id|integer|null: false,foreign_key: true|
 
 ### Association
 - has_many :users, through :groups_users
 - has_many :groups_users
-- belongs_to :message
+- has_many :messages
 
 
 ## groups_usersテーブル
