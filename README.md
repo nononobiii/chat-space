@@ -25,32 +25,31 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_name|string|autofocus: true,null: false, uniqueness: true|
+|name|string|autofocus: true,null: false, uniqueness: true|
 |email|string|null: false, email: true, uniqueness: true|
 |password|string|null: false, minlength: “8”, defaflt: “”|
 |repassword|string|null: false, password_confirmation: true|
 
 ### Association
-- has_many :message
-- has_many :groups_users
+- has_many :messages, through :groups_users
 
 
-## messageテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|presence: true, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |text|text|null: false|
 |image|text|  ｜
 
 ### Association
-- belongs_to :user
+- belongs_to :users
 - has_many :groups_messages
 
 
-## groupテーブル
+## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|autofocus: true,null: false,uniqueness: true|
+|name|string|autofocus: true,null: false,uniqueness: true|
 |user_id|integer|null: false,foreign_key: true|
 
 ### Association
@@ -58,16 +57,14 @@ Things you may want to cover:
 - has_many :groups_messages
 
 
-## groups_messagesテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |group_id|integer|null: false, foreign_key: true|
 |message_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
-- belongs_to :message
+- belongs_to :groups
+- belongs_to :messages
 
 
 ## groups_usersテーブル
@@ -78,5 +75,5 @@ Things you may want to cover:
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
-- belongs_to :user
+- belongs_to :groups
+- belongs_to :userss
