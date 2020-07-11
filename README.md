@@ -31,19 +31,23 @@ Things you may want to cover:
 |repassword|string|null: false, password_confirmation: true|
 
 ### Association
-- has_many :messages, through :groups_users
+- has_many :groups, through :groups_users
+- has_many :groups_users
+- has_many :messages
 
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 |text|text|null: false|
 |image|text|  ｜
 
 ### Association
-- belongs_to :users
-- has_many :groups_messages
+- belongs_to :user
+- belongs_to :group
+
 
 
 ## groupsテーブル
@@ -53,18 +57,9 @@ Things you may want to cover:
 |user_id|integer|null: false,foreign_key: true|
 
 ### Association
+- has_many :users, through :groups_users
 - has_many :groups_users
-- has_many :groups_messages
-
-
-|Column|Type|Options|
-|------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :groups
-- belongs_to :messages
+- belongs_to :message
 
 
 ## groups_usersテーブル
@@ -75,5 +70,5 @@ Things you may want to cover:
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :groups
-- belongs_to :userss
+- belongs_to :group
+- belongs_to :user
