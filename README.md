@@ -22,3 +22,52 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|autofocus: true,null: false, uniqueness: true|
+|email|string|null: false, email: true, uniqueness: true|
+|password|string|null: false, minlength: “8”, defaflt: “”|
+|repassword|string|null: false, password_confirmation: true|
+
+### Association
+- has_many :groups, through :groups_users
+- has_many :groups_users
+- has_many :messages
+
+
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+|text|text||
+|image|text||
+
+### Association
+- belongs_to :user
+- belongs_to :group
+
+
+
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|autofocus: true,null: false,uniqueness: true|
+
+### Association
+- has_many :users, through :groups_users
+- has_many :groups_users
+- has_many :messages
+
+
+## groups_usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
