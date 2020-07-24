@@ -1,0 +1,28 @@
+.main-chat
+  .main-chat__group-info
+    .main-group
+      .main-group__name
+        sa
+        %ul.group__memberlist 
+          Member : 
+          %li.group__member
+          sasa
+      =link_to "#", class: "main-group__edit" do
+        Edit
+  .main-chat__message-list
+    .message-list
+      .message-list__info
+        .message-list__info__name
+          nonono
+        .message-list__info__date
+          2020年
+      .message-list__text
+        おはよう！
+  .main-chat__message-form
+    .form
+      %form.form__box
+        %input.form__box__text{"placeholder": "type a message", "type": "text"}
+        %label{class: "form__box__image"}
+          = icon('far', 'image')
+          %input{class: "form__box__image__file", type: "file"}
+      %input.Form__submitBtn{"name": "commit", "type": "submit", "value": "Send", "class": "submitBtn"}
