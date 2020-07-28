@@ -72,6 +72,7 @@
     height: calc(100vh - 190px);
     background-color: #FAFAFA;
     padding: 35px 0 0 40px;
+    overflow: scroll;
   }
   &__message-form{
     height: 90px;
@@ -92,9 +93,9 @@
       color: #999999;
       margin-top: 15px;
       display: flex;
-      list-style: none;
       .group__member{
         margin-right: 5px;
+        font-size: 13px;
       }
     }
   }
@@ -156,7 +157,7 @@
       }
     }
   }
-  .submitBtn{
+  &__submit-btn{
     background-color: #38aef0;
     color: #ffffff;
     font-size: 16px;
