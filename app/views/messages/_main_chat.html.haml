@@ -12,11 +12,11 @@
         Edit
   .main-chat__message-list
     = render @messages
-    .message-list
-      .message-list__info
-        .message-list__info__name
-        .message-list__info__date
-      .message-list__box
+  -#   .message-list
+  -#     .message-list__info
+  -#       .message-list__info__name
+  -#       .message-list__info__date
+  -#     .message-list__box
   .main-chat__message-form
     = form_with model: [@group, @message], html: {class: "form"}, local: true do |f|
       .form__box
